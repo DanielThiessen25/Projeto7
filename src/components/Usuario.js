@@ -1,10 +1,10 @@
-export default function Usuario (){
+export default function Usuario (props){
     return(
         <div class="usuario">
-            <img src={promps.avatar} />
+            <img src={props.avatar} />
             <div class="texto">
-              <strong>{promps.nome}</strong>
-              {promps.descricao}
+              <strong>{props.nome}</strong>
+              {props.descricao}
             </div>
           </div>
 

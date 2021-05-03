@@ -2,7 +2,7 @@ export default function Sugestao(props){
     return(
     <div class="sugestao">
               <div class="usuario">
-                <img src="assets/img/bad.vibes.memes.svg" />
+                <img src={props.foto} />
                 <div class="texto">
                   <div class="nome">{props.nome}</div>
                   <div class="razao">{props.razao}</div>

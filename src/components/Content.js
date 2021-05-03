@@ -4,19 +4,30 @@ import Usuario from "./Usuario";
 import Sugestao from "./Sugestao";
 
 export default function Content() {
+
+const storiesArray = [{nome: "9gag", imagem: "assets/img/9gag.svg"}, {nome: "meowed", imagem: "assets/img/meowed.svg"}, {nome: "barked", imagem: "assets/img/barked.svg"},
+{nome: "nathanwpylestrangeplanet", imagem: "assets/img/nathanwpylestrangeplanet.svg"}, {nome: "wawawicomics", imagem: "assets/img/wawawicomics.svg"}, 
+{nome: "respondeai", imagem: "assets/img/respondeai.svg"},{nome: "filomoderna", imagem: "assets/img/filomoderna.svg"}, {nome: "memeriagourmet", imagem: "assets/img/memeriagourmet.svg"}];
+
+const postsArray = [{ avatar:"assets/img/meowed.svg", nome:"meowed", foto:"assets/img/gato-telefone.svg", curtida:"assets/img/respondeai.svg", curtidaNome:"respondeai"},
+ {avatar:"assets/img/barked.svg", nome:"barked", foto:"assets/img/dog.svg", curtida:"assets/img/adorable_animals.svg", curtidaNome:"adorable_animals" },
+ { avatar:"assets/img/meowed.svg", nome:"meowed", foto:"assets/img/gato-telefone.svg", curtida:"assets/img/respondeai.svg", curtidaNome:"respondeai"},
+ {avatar:"assets/img/barked.svg", nome:"barked", foto:"assets/img/dog.svg", curtida:"assets/img/adorable_animals.svg", curtidaNome:"adorable_animals" }
+];
+
+const sugestaoArray = [{nome: "bad.vibes.memes", foto: "assets/img/bad.vibes.memes.svg", razao: "Segue você"}, {nome: "chibirdart", foto: "assets/img/chibirdart.svg", razao: "Segue você"},
+{nome: "razoesparaacreditar", foto: "assets/img/razoesparaacreditar.svg", razao: "Novo no Instagram"}, {nome: "adorable_animals", foto: "assets/img/adorable_animals.svg", razao: "Segue você"}, {nome: "smallcutecats", foto: "assets/img/smallcutecats.svg", razao: "Segue você"}];
+
+
+
   return (
     <div class="corpo">
       <div class="esquerda">
         <div class="stories">
 
-          <Story imagem="assets/img/9gag.svg" nome="9gag" />
-          <Story imagem="assets/img/meowed.svg" nome="meowed" />
-          <Story imagem="assets/img/barked.svg" nome="barked" />
-          <Story imagem="assets/img/assets/nathanwpylestrangeplanet.svg" nome="nathanwpylestrangeplanet" />
-          <Story imagem="assets/img/wawawicomics.svg" nome="wawawicomics" />
-          <Story imagem="assets/img/respondeai.svg" nome="respondeai" />
-          <Story imagem="assets/img/filomoderna.svg" nome="filomoderna" />
-          <Story imagem="assets/img/memeriagourmet.svg" nome="memeriagourmet" />
+          {storiesArray.map( storyElement =>
+          <Story imagem={storyElement.imagem} nome={storyElement.nome} />
+          )}
 
           <div class="setinha">
             <ion-icon name="chevron-forward-circle"></ion-icon>
@@ -25,28 +36,27 @@ export default function Content() {
 
         <div class="posts">
 
-          <Post avatar="assets/img/meowed.svg" nome="meowed" foto="assets/img/gato-telefone.svg" curtida="assets/img/respondeai.svg" curtidaNome="respondeai" />
-          <Post avatar="assets/img/barked.svg" nome="barked" foto="assets/img/dog.svg" curtida="assets/img/adorable_animals.svg" curtidaNome="adorable_animals" />
-          <Post avatar="assets/img/meowed.svg" nome="meowed" foto="assets/img/gato-telefone.svg" curtida="assets/img/respondeai.svg" curtidaNome="respondeai" />
-          <Post avatar="assets/img/barked.svg" nome="barked" foto="assets/img/dog.svg" curtida="assets/img/adorable_animals.svg" curtidaNome="adorable_animals" />
+          {postsArray.map(postElement =>
+           <Post avatar={postElement.avatar} nome={postElement.nome} foto={postElement.foto} curtida={postElement.curtida} curtidaNome={postElement.curtidaNome} />
+           )}  
+
 
         </div>
+      </div>
 
 
+      <div class="sidebar">
+        <Usuario avatar="assets/img/catanacomics.svg" nome="catanacomics" descricao="Catana" />
 
-        <div class="sidebar">
-          <Usuario avatar="assets/img/catanacomics.svg" nome="catanacomics" descricao="Catana"/>
-
-          <div class="sugestoes">
-            <div class="titulo">
-              Sugestões para você
+        <div class="sugestoes">
+          <div class="titulo">
+            Sugestões para você
               <div>Ver tudo</div>
-            </div>
+          </div>
 
-            <Sugestao  nome="chibirdart" razao="Segue você"/>
-            <Sugestao  nome="razoesparaacreditar" razao="Novo no Instagram"/>
-            <Sugestao  nome="adorable_animals" razao="Segue você"/>
-            <Sugestao  nome="smallcutecats" razao="Segue você"/>
+          {sugestaoArray.map( sugestaoElement =>
+          <Sugestao foto={sugestaoElement.foto} nome={sugestaoElement.nome} razao={sugestaoElement.razao}/>
+          )}
 
           <div class="links">
             Sobre • Ajuda • Imprensa • API • Carreiras • Privacidade • Termos • Localizações • Contas mais relevantes • Hashtags • Idioma
@@ -57,7 +67,6 @@ export default function Content() {
           </div>
         </div>
       </div>
-</div>
-</div>
-    );
+    </div>
+  );
 }
