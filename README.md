@@ -14,14 +14,14 @@ Front-End of Instagram's web page.
 ## How to run
 
 1. Clone this repository
-```
-$ git clone https://github.com/steniowagner/mindCast
+```bash
+git clone https://github.com/DanielThiessen25/instagram-layout.git
 
-$ cd mindCast
+cd instagram-layout
 ```
 3. Install Dependencies
-```
-$ npm i
+```bash
+npm i
 ```
 5. Run the front-end with
 ```bash
